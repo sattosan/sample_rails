@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## インストール
+プロジェクトの作成
+```
+$ docker-compose run --rm web rails new . --force --database=mysql --skip-bundle
+$ docker-compose build
+```
 
-Things you may want to cover:
+config/database.ymlを修正
+```
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
+  host: db
+```
 
-* Ruby version
+```
+$ docker-compose up -d --build
+```
+※コンテナ立ち上げ時にエラーが起きた場合はコンテナに入って確かめる
+```
+$ docker-compose run --rm web bash
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## その他
+MySQLへ接続
+```
+$ myslq -u root -h 127.0.0.1 -p
+```
