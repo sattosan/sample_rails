@@ -18,7 +18,7 @@
 
 .git
 .rspec
-docker/mysql/password.yml
+docker/mysql/password.env
 log
 tmp
 node_modulesr
