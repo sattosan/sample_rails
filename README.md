@@ -26,7 +26,7 @@ $ docker-compose up -d --build
 $ docker-compose run --rm web bash
 ```
 
-## その他
+## その他
 MySQLへ接続
 ```
 $ myslq -u root -h 127.0.0.1 -p
