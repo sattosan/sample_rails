@@ -1,10 +1,9 @@
-FROM ruby:2.5
+FROM ruby:2.6.5
 ENV LANG C.UTF-8
 
-# for mariaDB
 RUN apt-get update && apt-get install -y \
   build-essential \
-  mysql-client \
+  default-mysql-client \
   nodejs
 
 RUN gem install bundler
